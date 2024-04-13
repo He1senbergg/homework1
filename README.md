@@ -14,7 +14,7 @@ model = ThreeLayerNN(input_size=784, hidden_size=225, output_size=10, init_param
 - hidden_size: 隐藏层大小
 - output_size: 十分类输出
 - init_params: 模型参数导入选项
-- 
+
 sgd = SGD(params = model.params, grads = model.grads, learning_rate = 0.1, momentum = 0.9, decay_lr = 1)
 
 - params: 模型参数
