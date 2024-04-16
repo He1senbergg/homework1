@@ -1,29 +1,30 @@
 # 导入数据集
 **1.将以下两行中的代码中的地址修改为本地的保存地址**
 
-trainset = datasets.FashionMNIST(root='E:\\3_硕士_复旦大学\\1-研一\\2-第二学期\\神经网络和深度学习\\作业\\作业1', train=True, download=True)
+trainset = datasets.FashionMNIST(root="/home/ly/miniconda3/envs/data", train=True, download=True)
 
-testset = datasets.FashionMNIST(root='E:\\3_硕士_复旦大学\\1-研一\\2-第二学期\\神经网络和深度学习\\作业\\作业1', train=False, download=True)
+testset = datasets.FashionMNIST(root="/home/ly/miniconda3/envs/data", train=False, download=True)
 
 # 训练
 **找到含有以下三行代码的代码块，调参、运行（记得运行前面的代码以激活定义的代码）。**
 
-model = ThreeLayerNN(input_size=784, hidden_size=225, output_size=10, init_params = None)
+model = ThreeLayerNN(input_size=784, hidden_size1=361, hidden_size2=100, output_size=10, init_params = None)
 
 - input_size: 输入样本的维度，每张图片28*28，reshape展平后，28*28=784
-- hidden_size: 隐藏层大小
+- hidden_size1: 隐藏层大小1
+- hidden_size2: 隐藏层大小2
 - output_size: 十分类输出
-- init_params: 模型参数导入选项
+- init_params: 模型参数导入选项(None or Saved_params)
 
-sgd = SGD(params = model.params, grads = model.grads, learning_rate = 0.1, momentum = 0.9, decay_lr = 1)
+sgd = SGD(params = model.params, grads = model.grads, learning_rate = 0.1, momentum = 0, decay_lr = 1)
 
 - params: 模型参数
 - grads: 模型梯度
 - learning_rate: 学习率
-- momentum: 动量
-- decay_lr: 每轮的学习率的缩放比例
+- momentum: 动量(self.velocity[key] = self.momentum * self.velocity[key] - self.lr * dW)
+- decay_lr: 每轮的学习率的缩放比例(如lr_new = lr_old * decay_lr)
   
-train(X_train, y_train, X_test, y_test, model, sgd, batch_size = 50, epoch = 100, l2_reg=0, save_threshold = 0.0)
+train(X_train, y_train, X_test, y_test, model, sgd, batch_size = 50, epoch = 100, l2_reg=0.001, save_threshold = 0.85)
 
 - X_train: 训练集的X
 - y_train: 训练集的标签
@@ -41,9 +42,9 @@ train(X_train, y_train, X_test, y_test, model, sgd, batch_size = 50, epoch = 100
 
 在以下这一行中，修改directory为保存模型参数的文件夹：   
 
-directory = r"E:\3_硕士_复旦大学\1-研一\2-第二学期\神经网络和深度学习\作业\作业1"
+directory = "/home/ly"
 
-定义需显性显示的测试样本个数，如已有的num = 50。
+定义需显性显示的测试样本个数，如已有的num = 50(至多显性前60个结果)。
 
 **2.点击运行**
 
