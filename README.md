@@ -1,5 +1,6 @@
 # 导入数据集
 **1.将以下两行中的代码中的地址修改为本地的保存地址**
+![image](https://github.com/He1senbergg/homework1/assets/148076707/c4f3301f-d268-41b6-b4d0-88c8a8d8f6d1)
 
 trainset = datasets.FashionMNIST(root="/home/ly/miniconda3/envs/data", train=True, download=True)
 
@@ -7,6 +8,7 @@ testset = datasets.FashionMNIST(root="/home/ly/miniconda3/envs/data", train=Fals
 
 # 训练
 **找到含有以下三行代码的代码块，调参、运行（记得运行前面的代码以激活定义的代码）。**
+![image](https://github.com/He1senbergg/homework1/assets/148076707/b92477d6-b52e-49b7-b3db-e2699b7ab9b3)
 
 model = ThreeLayerNN(input_size=784, hidden_size1=361, hidden_size2=100, output_size=10, init_params = None)
 
@@ -41,6 +43,7 @@ train(X_train, y_train, X_test, y_test, model, sgd, batch_size = 50, epoch = 100
 **1.导入模型参数，并测试**
 
 在以下这一行中，修改directory为保存模型参数的文件夹：   
+![image](https://github.com/He1senbergg/homework1/assets/148076707/6e6a651d-a733-4c13-9b64-d8dd3f68c694)
 
 directory = "/home/ly"
 
